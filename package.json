@@ -1,0 +1,26 @@
+{
+  "name": "hhb-server",
+  "version": "1.0.0",
+  "description": "This is a sample client for Facebook's [Webhooks](https://developers.facebook.com/docs/graph-api/webhooks/) product and Instagram's [Subscriptions API](https://www.instagram.com/developer/subscriptions/), powered by [Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JaapBarnhoorn/Facebook-Webhooks.git"
+  },
+  "author": "Jaap Barnhoorn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JaapBarnhoorn/Facebook-Webhooks/issues"
+  },
+  "homepage": "https://github.com/JaapBarnhoorn/Facebook-Webhooks#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-x-hub": "^1.0.4",
+    "http": "0.0.0",
+    "socket.io": "^2.1.1"
+  }
+}
