@@ -10,11 +10,13 @@ var bodyParser = require('body-parser');
 var express = require('express');
 var app = express();
 var xhub = require('express-x-hub');
-var http = require('http').Server(app);
-var io = require('socket.io')(http, { origins: '*:*'});
+var server = require('http').createServer(app);
+var io = require('socket.io')(server, { origins: '*:*'});
+
+io.origins(['http://localhost:3333']);
 
 app.set('port', (process.env.PORT || 5000));
-app.listen(app.get('port'));
+server.listen(app.get('port'));
 
 app.use(xhub({ algorithm: 'sha1', secret: process.env.APP_SECRET }));
 app.use(bodyParser.json());
@@ -64,8 +66,4 @@ app.post('/instagram', function(req, res) {
 
 io.on('connection', function(socket){
   console.log('a user connected');
-});
-
-http.listen(3000, function(){
-  console.log('listening on *:3000');
 });
