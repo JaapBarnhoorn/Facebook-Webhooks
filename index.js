@@ -51,6 +51,7 @@ app.post('/facebook', function(req, res) {
   // Process the Facebook updates here
   received_updates.unshift(req.body);
   res.sendStatus(200);
+  io.emit('new like', req.body);
 });
 
 app.post('/instagram', function(req, res) {
