@@ -66,4 +66,9 @@ app.post('/instagram', function(req, res) {
 
 io.on('connection', function(socket){
   console.log('a user connected');
+
+  socket.on('get date', function() {
+    let date = new Date().getDate();
+    socket.emit('date', date)
+  })
 });
