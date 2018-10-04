@@ -14,7 +14,6 @@ var server = require('http').createServer(app);
 var io = require('socket.io')(server, { origins: '*:*'});
 
 io.origins(['http://localhost:3333', 'https://hhb-adventkalender.netlify.com:80']);
-io.set('origins', 'https://hhb-adventkalender.netlify.com');
 
 app.set('port', (process.env.PORT || 5000));
 server.listen(app.get('port'));
