@@ -11,7 +11,7 @@ var express = require('express');
 var cors = require('cors')
 var app = express();
 var xhub = require('express-x-hub');
-var server = require('http').createServer(app);
+var server = app.listen(process.env.PORT || 3000);
 var io = require('socket.io')(server, { origins: '*'});
 
 app.use(cors());
@@ -22,10 +22,9 @@ app.use(function (res, next) {
   next();
 });
 io.origins(['http://localhost:3333', 'https://hhb-adventkalender.netlify.com']);
-io.set('transports', ['websocket', 'polling']);
 
-app.set('port', (process.env.PORT || 5000));
-server.listen(app.get('port'));
+// app.set('port', (process.env.PORT || 5000));
+// server.listen(app.get('port'));
 
 app.use(xhub({ algorithm: 'sha1', secret: process.env.APP_SECRET }));
 app.use(bodyParser.json());
