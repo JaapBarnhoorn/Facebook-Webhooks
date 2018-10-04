@@ -11,7 +11,7 @@ var express = require('express');
 var app = express();
 var xhub = require('express-x-hub');
 var server = require('http').createServer(app);
-var io = require('socket.io')(server, { origins: '*:*'});
+var io = require('socket.io')(server, { origins: '*'});
 
 io.origins(['http://localhost:3333', 'https://hhb-adventkalender.netlify.com']);
 
