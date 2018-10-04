@@ -8,11 +8,13 @@
 
 var bodyParser = require('body-parser');
 var express = require('express');
+var cors = require('cors')
 var app = express();
 var xhub = require('express-x-hub');
 var server = require('http').createServer(app);
 var io = require('socket.io')(server, { origins: '*'});
 
+app.use(cors());
 io.origins(['http://localhost:3333', 'https://hhb-adventkalender.netlify.com']);
 
 app.set('port', (process.env.PORT || 5000));

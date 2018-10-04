@@ -19,6 +19,7 @@
   "homepage": "https://github.com/JaapBarnhoorn/Facebook-Webhooks#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
     "express": "^4.16.3",
     "express-x-hub": "^1.0.4",
     "http": "0.0.0",
