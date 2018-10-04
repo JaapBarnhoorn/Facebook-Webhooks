@@ -15,6 +15,12 @@ var server = require('http').createServer(app);
 var io = require('socket.io')(server, { origins: '*'});
 
 app.use(cors());
+app.use(function (res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept-Type');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  next();
+});
 io.origins(['http://localhost:3333', 'https://hhb-adventkalender.netlify.com']);
 io.set('transports', ['websocket', 'polling']);
 
