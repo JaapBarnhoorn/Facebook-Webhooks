@@ -13,7 +13,7 @@ var xhub = require('express-x-hub');
 var server = require('http').createServer(app);
 var io = require('socket.io')(server, { origins: '*:*'});
 
-io.origins(['http://localhost:3333', 'https://hhb-adventkalender.netlify.com:80']);
+io.origins(['http://localhost:3333', 'http://10.4.2.109:3333', 'https://hhb-adventkalender.netlify.com:80']);
 
 app.set('port', (process.env.PORT || 5000));
 server.listen(app.get('port'));
