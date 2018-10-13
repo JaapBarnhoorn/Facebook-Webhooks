@@ -23,6 +23,7 @@
     "express": "^4.16.3",
     "express-x-hub": "^1.0.4",
     "http": "0.0.0",
+    "redis": "^2.8.0",
     "socket.io": "^2.1.1"
   }
 }
