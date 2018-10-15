@@ -18,6 +18,14 @@ io.origins(['http://localhost:3333', 'http://10.4.2.109:3333', 'https://hhb-adve
 app.set('port', (process.env.PORT || 5000));
 server.listen(app.get('port'));
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  res.header("Access-Control-Allow-Methods", "PUT, GET, POST, DELETE, OPTIONS");
+  next();
+});
+
 app.use(xhub({ algorithm: 'sha1', secret: process.env.APP_SECRET }));
 app.use(bodyParser.json());
 
